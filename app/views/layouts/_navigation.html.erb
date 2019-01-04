@@ -9,6 +9,12 @@
         <span class="icon-bar"></span>
       </button>
       <%= link_to 'collabfield', root_path, class: 'navbar-brand' %>
+
+      <%- if current_user %>
+        <%= link_to 'sign out', destroy_user_session_path,method: :delete, class: 'navbar-brand' %>
+      <%- else %>
+        <%= link_to 'sign in', new_user_session_path, class: 'navbar-brand' %>
+      <%- end %> 
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -21,3 +27,5 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+
+<%= current_user %>
